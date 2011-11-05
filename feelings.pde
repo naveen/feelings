@@ -45,6 +45,19 @@ void sortScatter() {
   }
 }
 
+void sortHappy() {
+  for(FeelingObject f:feelingList) {
+    if (f.feeling.equals("happy")) {
+      f.tpos.x = 100;
+    } else {
+      f.tpos.x = random(300, width);
+    }
+
+    f.tpos.y = random(height);
+  }
+}
+
 void keyPressed() {
   if (key == 'x') sortScatter();
+  if (key == 'h') sortHappy();
 }
