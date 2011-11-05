@@ -45,9 +45,9 @@ void sortScatter() {
   }
 }
 
-void sortHappy() {
+void sortByWord(String w) {
   for(FeelingObject f:feelingList) {
-    if (f.feeling.equals("happy")) {
+    if (f.feeling.equals(w)) {
       f.tpos.x = 100;
     } else {
       f.tpos.x = random(300, width);
@@ -59,5 +59,6 @@ void sortHappy() {
 
 void keyPressed() {
   if (key == 'x') sortScatter();
-  if (key == 'h') sortHappy();
+  if (key == 'h') sortByWord("happy");
+  if (key == 'b') sortByWord("better");
 }
