@@ -1,4 +1,4 @@
-String baseURL = "http://api.wefeelfine.org:8080/ShowFeelings?returnfields=feeling,sentence,gender&display=xml";
+String baseURL = "http://api.wefeelfine.org:8080/ShowFeelings?returnfields=feeling,sentence,gender&display=xml"; //&city=brooklyn
 ArrayList<FeelingObject> feelingList = new ArrayList();
 
 HashMap<String, FeelingType> feelingHash = new HashMap();
@@ -20,10 +20,10 @@ void setup() {
   */
   
 //  println(PFont.list()); // list of all of the installed fonts on this machine
-  labelFont = createFont("Times-Bold", 18);
-  labelFontAlternate = createFont("Helvetica", 18);
+  labelFont = createFont("Helvetica", 14);
+  labelFontAlternate = createFont("Helvetica", 14);
   textFont(labelFont); // this is to set it once globally for all text
-  textSize(18);
+  textSize(14);
 }
 
 void draw() {
@@ -112,14 +112,19 @@ void sortByGender() {
 }
 
 void sortAsGraph() {
+  float xpos = 0;
+  
   for(int i = 0; i < feelingTypeList.size(); i++) {
     FeelingType ft = feelingTypeList.get(i);
 
     for (int j = 0; j < ft.feelingList.size(); j++) {
       FeelingObject fo = ft.feelingList.get(j);
-      fo.tpos.x = i * 10;
+      fo.tpos.x = xpos;
       fo.tpos.y = 400 + j * -10;
     }
+    
+    float w = textWidth(ft.name);
+    xpos += w + 5;
   }
 }
 
