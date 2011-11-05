@@ -1,5 +1,6 @@
 String baseURL = "http://api.wefeelfine.org:8080/ShowFeelings?returnfields=feeling,sentence,gender&display=xml";
 ArrayList<FeelingObject> feelingList = new ArrayList();
+PFont labelFont;
 
 void setup() {
   size(700, 700);
@@ -7,6 +8,10 @@ void setup() {
   smooth();
   
   loadFeelings();
+  
+  labelFont = createFont("Helvetica",48);
+  textFont(labelFont); // this is to set it once globally for all text
+  textSize(18);
 }
 
 void draw() {
