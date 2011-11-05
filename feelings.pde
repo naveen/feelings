@@ -118,7 +118,7 @@ void sortAsGraph() {
     for (int j = 0; j < ft.feelingList.size(); j++) {
       FeelingObject fo = ft.feelingList.get(j);
       fo.tpos.x = i * 10;
-      fo.tpos.y = j * 10;
+      fo.tpos.y = 400 + j * -10;
     }
   }
 }
