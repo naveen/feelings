@@ -36,3 +36,15 @@ void loadFeelings() {
     }
   }
 }
+
+// sort functions
+void sortScatter() {
+  for(FeelingObject f:feelingList) {
+    f.tpos.x = random(width);
+    f.tpos.y = random(height);
+  }
+}
+
+void keyPressed() {
+  if (key == 'x') sortScatter();
+}
