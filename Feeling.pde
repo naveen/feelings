@@ -3,6 +3,8 @@ class FeelingObject {
   String feeling;
   String sentence;
   
+  String gender;
+  
   PVector pos = new PVector();
   PVector tpos = new PVector();
   
