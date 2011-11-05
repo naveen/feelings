@@ -8,6 +8,8 @@ class FeelingObject {
   PVector pos = new PVector();
   PVector tpos = new PVector();
   
+  color c = 255;
+  
   void update() {
     pos.x += (tpos.x - pos.x) * 0.1;
     pos.y += (tpos.y - pos.y) * 0.1;
@@ -29,6 +31,7 @@ class FeelingObject {
       } else {
         textFont(labelFontAlternate);
       }
+      fill(c);
       text(feeling, 0, 0);
     
     popMatrix();

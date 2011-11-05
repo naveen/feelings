@@ -16,6 +16,8 @@ void setup() {
   background(0);
   smooth();
   
+  colorMode(HSB);
+  
   maxWidth = width;
   loadFeelings();
   /*
@@ -70,12 +72,14 @@ void loadFeelings() {
         FeelingType ft = feelingHash.get(feeling);
         ft.count++;
         ft.feelingList.add(f);
+        f.c = ft.c;
       } else {
         // make a new feelingType
         FeelingType ft = new FeelingType();
         ft.name = feeling;
         ft.count = 1;
         ft.feelingList.add(f);
+        ft.c = f.c = color(random(255), 255, 255);
         
         // add it to the hash
         feelingHash.put(feeling, ft);
