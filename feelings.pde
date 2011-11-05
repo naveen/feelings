@@ -1,4 +1,5 @@
 String baseURL = "http://api.wefeelfine.org:8080/ShowFeelings?returnfields=feeling,sentence&display=xml";
+ArrayList<FeelingObject> feelingList = new ArrayList();
 
 void setup() {
   size(700, 700);
@@ -9,7 +10,12 @@ void setup() {
 }
 
 void draw() {
+  background(0);
   
+  for (FeelingObject f:feelingList) {
+    f.update();
+    f.render();
+  }
 }
 
 void loadFeelings() {
@@ -19,6 +25,14 @@ void loadFeelings() {
     XMLElement child = xml.getChild(i);
     String feeling = child.getString("feeling");
     String sentence = child.getString("sentence");
-    if (feeling != null) text(sentence, random(width), random(height));
+    if (feeling != null) {
+      FeelingObject f = new FeelingObject();
+      f.feeling = feeling;
+      f.sentence = sentence;
+      f.tpos.x = random(width);
+      f.tpos.y = random(height);
+      
+      feelingList.add(f);
+    }
   }
 }
