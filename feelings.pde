@@ -15,5 +15,9 @@ void draw() {
 void loadFeelings() {
   // load the xml
   XMLElement xml = new XMLElement(this, baseURL);
-  println(xml);
+  for(int i = 0; i < xml.getChildCount(); i++) {
+    XMLElement child = xml.getChild(i);
+    String feeling = child.getString("feeling");
+    if (feeling != null) text(feeling, random(width), random(height));
+  }
 }
