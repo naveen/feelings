@@ -7,11 +7,14 @@ ArrayList<FeelingType> feelingTypeList = new ArrayList();
 PFont labelFont;
 PFont labelFontAlternate;
 
+float maxWidth;
+
 void setup() {
   size(700, 700);
   background(0);
   smooth();
   
+  maxWidth = width;
   loadFeelings();
   /*
   println(feelingHash.get("good").count);
@@ -28,6 +31,10 @@ void setup() {
 
 void draw() {
   background(0);
+  
+  float slideWidth = maxWidth - width;
+  float offset = map(mouseX, 0, width, 0, -slideWidth);
+  translate(offset, 0);
   
   for (FeelingObject f:feelingList) {
     f.update();
@@ -126,6 +133,8 @@ void sortAsGraph() {
     float w = textWidth(ft.name);
     xpos += w + 5;
   }
+  
+  maxWidth = xpos;
 }
 
 void keyPressed() {
