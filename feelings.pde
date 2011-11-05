@@ -154,4 +154,11 @@ void keyPressed() {
   if (key == 'b') sortByWord("better");
   if (key == 'g') sortByGender();
   if (key == 'l') sortAsGraph();
+  if (key == 's') saveImage();
 }
+
+void saveImage() {
+  String timestamp = hour() + "_" + minute() + "_" + second();
+  save("out/" + timestamp + ".png");
+}
+
