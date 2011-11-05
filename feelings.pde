@@ -18,6 +18,7 @@ void loadFeelings() {
   for(int i = 0; i < xml.getChildCount(); i++) {
     XMLElement child = xml.getChild(i);
     String feeling = child.getString("feeling");
-    if (feeling != null) text(feeling, random(width), random(height));
+    String sentence = child.getString("sentence");
+    if (feeling != null) text(sentence, random(width), random(height));
   }
 }
