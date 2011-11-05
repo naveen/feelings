@@ -24,6 +24,11 @@ class FeelingObject {
     pushMatrix();
     
       translate(pos.x, pos.y);
+      if (gender != null && gender.equals("1")) {
+        textFont(labelFont);
+      } else {
+        textFont(labelFontAlternate);
+      }
       text(feeling, 0, 0);
     
     popMatrix();
