@@ -8,6 +8,8 @@ PFont labelFont;
 PFont labelFontAlternate;
 
 float maxWidth;
+float offset = 0;
+float toffset = 0;
 
 void setup() {
   size(700, 700);
@@ -32,8 +34,11 @@ void setup() {
 void draw() {
   background(0);
   
+  // easing function for horizontal scroll
+  offset += (toffset - offset) * 0.1;
+  
   float slideWidth = maxWidth - width;
-  float offset = map(mouseX, 0, width, 0, -slideWidth);
+  toffset = map(mouseX, 0, width, 0, -slideWidth);
   translate(offset, 0);
   
   for (FeelingObject f:feelingList) {
