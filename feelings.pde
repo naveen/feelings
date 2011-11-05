@@ -143,6 +143,8 @@ void sortAsGraph() {
 }
 
 void keyPressed() {
+  maxWidth = width;
+  
   if (key == 'x') sortScatter();
   if (key == 'h') sortByWord("happy");
   if (key == 'b') sortByWord("better");
